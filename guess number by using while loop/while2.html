@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="sonuc"></h1>
+    <script>
+        var x=Math.floor(Math.random()*100);
+        console.log(x);
+        var y=prompt("0-100 arasında bir sayı tahmin edin "+x);
+        while(Number(y)!=x){
+            y=prompt("Lütfen tekrar tahmin edin");
+        }//while bitişi
+
+        //alert("Tebrikler");
+        document.getElementById("sonuc").innerHTML="Tebrikler doğru bildiniz";
+    </script>
+</body>
+</html>
