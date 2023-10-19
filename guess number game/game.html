@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button type="button" class="btn btn-primary position-relative mt-5">
+        Tahmin sayısı
+        <span id="spanid" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          0
+        </span>
+      </button>
+<div class="d-grid gap-2 col-6 mx-auto mt-5">
+    <h1>Sayı Tahmin Uygulama</h1>
+    <div class="mb-3">
+  <input  class="form-control" id="in1" placeholder="0-500 arasında bir sayı girin ">
+</div>
+  <button onclick="TahminF()" class="btn btn-primary" type="button">Gönder</button>
+  <div class="alert alert-danger" id="divid" role="alert">
+  </div>
+</div>
+    <script>
+        var sayi=Math.floor(Math.random()*500);//50
+        var count=0;
+        console.log(sayi);
+        function TahminF(){
+            var t=Number(document.getElementById("in1").value);//25
+            if(t<sayi){
+                count++;
+                document.getElementById("divid").innerHTML="Tahmin sayınızı Büyütün";
+                document.getElementById("spanid").innerHTML=count;
+            }else if(t>sayi){
+                count++
+                document.getElementById("divid").innerHTML="Tahmin sayısını küçültün";
+                document.getElementById("spanid").innerHTML=count;
+            }else if(t==sayi){
+                count++;
+                document.getElementById("divid").innerHTML="Tebrikler Doğru";
+                document.getElementById("divid").style.background="#A0E53E";
+                document.getElementById("divid").style.fontSize="50px";
+                document.getElementById("spanid").innerHTML=count;
+            }
+        }
+    </script>
+</body>
+</html>
