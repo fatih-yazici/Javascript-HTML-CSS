@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body style="background: black;" >
+    <div class="d-grid gap-2 col-6 mx-auto mt-5">
+        <h1 style="color: azure;">Sezar Şifreleme Algoritması</h1>
+        <div class="mb-3">
+            
+            <textarea class="form-control" id="in1" rows="3"></textarea>
+          </div>
+        <button  onclick="Sifre()" class="btn btn-primary" type="button">Şifrele</button>
+        <button  onclick="BinaryF()" class="btn btn-info" type="button">Binary</button>
+        <button onclick="Desifre()" class="btn btn-warning" type="button">Deşifre</button>
+        <div class="mb-3">
+            
+            <textarea class="form-control" id="sonuc" rows="3"></textarea>
+          </div>
+      </div>
+    <script>
+        var c="";
+        function Sifre(){
+            var a=document.getElementById("in1").value;
+            var x;
+            var y;
+            for(var i=0; i<a.length; i++){
+                x=a[i].charCodeAt();//decimal halini oluşturacak örn: A=65
+                y=x+3;// 65+3=68
+                c=c+String.fromCharCode(y);
+
+            }//for bitiş
+            document.getElementById("sonuc").innerHTML=c;
+        }
+        function BinaryF(){
+            var in2=document.getElementById("in1").value;
+            var b;
+            var s="";
+            for(var i=0; i<in2.length;i++){// buradaki i yukarıdaki i ile karışmaz çünkü birbirinden bağımsızdırlar.
+                b=in2[i].charCodeAt().toString(2);
+                s=s+b;
+            }//for bitiş
+            document.getElementById("sonuc").innerHTML=s;
+        }
+
+        function Desifre(){
+            var t=""
+            var f;
+            for(var i=0; i<c.length; i++){
+            f=c[i].charCodeAt();
+            f=f-3;// f-=3
+            t=t+String.fromCharCode(f);
+            }//for bitiş
+            document.getElementById("sonuc").innerHTML=t;
+        }
+    </script>
+</body>
+</html>
